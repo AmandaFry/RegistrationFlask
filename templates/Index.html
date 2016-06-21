@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+    <meta charset="UTF-8">
+	<title>TODO: Title goes here</title>
+	<meta name="description" content="TODO: description goes here ">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/AmandaTemplate.css') }}">
+</head>
+<body>	
+    <div class="container">
+        <div class="header">
+            <h1><span>(Flask) </span> Regitration Form</h1>
+            <h3>Assigment X - mandatory</h3>
+            <div class="descr">
+                <p>Assigment description: Registration form using advanced validation. - Regex.</p>
+                <p>Create simple registration form with the followings:</p>
+                <ul>
+                    <li>email</li>
+                    <li>first_name</li>
+                    <li>last_name</li>
+                    <li>password</li>
+                    <li>confirm_password</li>
+                </ul>
+                <p>Validate must include:</p>
+                <ul>
+                    <li>All fields are required and must not be blank.</li>
+                    <li>First and Last Name cannot contain any numbers.</li>
+                    <li>Password should be more than 8 characters. Optional advenced option: password to have at least 1 uppercase letter and 1 numeric value </li>
+                    <li>Email should be a valid email.</li>
+                    <li>Password and Password Confirmation should match</li>
+                    <li>Optional advenced option: Add a birth-date field that must be validated as a valid date (and must be from the past).</li>
+                </ul>
+            </div>
+        </div><!-- end of header content-->
+        <div class="maincontent">
+            <h1>Register</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                     {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith%}
+            <div class="box">
+                <form action="/register" method="post">
+                    <label>
+                        <h3>Email: <input type="text" name="email"></input></h3>
+                    </label>
+                    <label>
+                        <h3>First Name: <input type="text" name="first_name"></input></h3>
+                    </label>
+                    <label>
+                        <h3>Last Name:<input type="text" name="last_name"></input></h3>
+                    </label>
+                    <label>
+                        <h3>Password: <input type="password" name="password"></input></h3>
+                    </label>
+                    <label>
+                        <h3>Confirm password: <input type="password" name="confirm_password"></input></h3>
+                    </label>
+<!--                     <label>
+                        <h3>Birthday: <input type="text" name="birthday"></input></h3>
+                    </label> -->
+                    <h2><input class="button" type="submit" value="Submit"></input></h2>
+                </form>
+            </div>
+                
+        </div><!-- end of main content-->
+        <div class="footer">
+            <p>created by: Amanda Fry</p>
+            <a class="footerSpace" href="mailto:FeAmandaF@hotmail.com">FeAmandaF@hotmail.com</a>
+            <a href="https://www.linkedin.com/in/amandafry1">Amanda's LinkedIn profile</a>
+        </div><!-- end of footer -->
+      </div><!-- end of container -->
+</body>
+</html>
